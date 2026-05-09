@@ -1,5 +1,7 @@
 # e73 config
 
+CONFIG_ZMK_BOARD_COMPAT=y
+
 CONFIG_ADC_NRFX_SAADC=y
 
 # Enable MPU

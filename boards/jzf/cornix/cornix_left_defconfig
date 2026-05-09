@@ -1,5 +1,8 @@
 # e73 config
 
+# Zephyr 4.1+ CI checks CONFIG_ZMK_BOARD_COMPAT for out-of-tree boards.
+CONFIG_ZMK_BOARD_COMPAT=y
+
 CONFIG_ADC_NRFX_SAADC=y
 
 # Enable MPU
