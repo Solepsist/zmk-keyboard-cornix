@@ -42,7 +42,8 @@ include:
     shield: settings_reset
     artifact-name: reset
 
+  # Right half has no USB (CONFIG_ZMK_USB=n); omit studio-rpc snippet.
   - board: cornix_right
     shield: settings_reset
-    snippet: studio-rpc-usb-uart nrf52840-nosd
+    snippet: nrf52840-nosd
     artifact-name: reset_nosd
