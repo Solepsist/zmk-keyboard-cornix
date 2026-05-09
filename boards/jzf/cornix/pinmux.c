@@ -8,11 +8,10 @@
 #include <zephyr/device.h>
 #include <zephyr/init.h>
 #include <zephyr/drivers/gpio.h>
-#include <zephyr/sys/sys_io.h>
 #include <zephyr/devicetree.h>
 
 static int pinmux_cornix_init(void) {
-#if (CONFIG_BOARD_CORNIX)
+#if IS_ENABLED(CONFIG_BOARD_CORNIX_LEFT) || IS_ENABLED(CONFIG_BOARD_CORNIX_RIGHT) || IS_ENABLED(CONFIG_BOARD_CORNIX_PH_LEFT)
     const struct device *p0 = DEVICE_DT_GET(DT_NODELABEL(gpio0));
 #if CONFIG_BOARD_CORNIX_CHARGER
     gpio_pin_configure(p0, 5, GPIO_OUTPUT);
