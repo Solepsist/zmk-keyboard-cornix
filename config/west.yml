@@ -9,24 +9,25 @@ manifest:
     - name: janpfischer
       url-base: https://github.com/janpfischer
   projects:
+    # Pinned ZMK release (Zephyr 3.5.x). Avoids Zephyr 4.1 + main-branch breakage.
+    # Use v0.2.1 instead of v0.3.0 if you want the 0.2.x line (same Zephyr rev in app/west.yml).
+    # To go back to latest main + Zephyr 4.1, set revision: main and restore build.yaml snippets / board names below.
     - name: zmk
       remote: zmkfirmware
-      revision: main
-      clone-depth: 1
+      revision: v0.3.0
       import:
         file: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
-      clone-depth: 1
+      revision: v0.3.0
     #- name: zmk-rgbled-widget
     #  remote: hitsmaxft
     #  revision: main
     #  clone-depth: 1
+    # Pre-Zephyr-4: use `main`. Branch `zephyr4` is for ZMK main + Zephyr 4.1+ only.
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: zephyr4
-      clone-depth: 1
+      revision: main
     #- name: zmk-dongle-screen
     #  remote: janpfischer
     #  revision: main

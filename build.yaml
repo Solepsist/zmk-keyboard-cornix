@@ -13,11 +13,10 @@
 #
 ---
 include:
-  # nice!nano must use the ZMK board variant (Zephyr 4.1+). See:
-  # https://zmk.dev/blog/2025/12/09/zephyr-4-1#zmk-board-variant
-  - board: nice_nano//zmk
+  # ZMK v0.3.x / Zephyr 3.5: use board id nice_nano_v2 (nice!nano v2 / same UF2 layout as common Pro Micro dongles).
+  # Drop nrf52840-nosd / studio-rpc snippets — those targets Zephyr 4.1+ toolchains; add CONFIG_* in shield conf if needed.
+  - board: nice_nano_v2
     shield: cornix_dongle_adapter cornix_dongle_eyelash dongle_display
-    snippet: studio-rpc-usb-uart nrf52840-nosd
     artifact-name: cornix_dongle_nosd
   # dongle screen not yet supports zephyr4
   # - board: seeeduino_xiao_ble
@@ -40,13 +39,11 @@ include:
     # shield: cornix_indicator
     artifact-name: cornix_right_nosd
 
-  # Right half has CONFIG_ZMK_USB=n; studio-rpc snippet conflicts with that.
+  # Right half has CONFIG_ZMK_USB=n; do not use Studio RPC snippet here.
   - board: cornix_right
     shield: settings_reset
-    snippet: nrf52840-nosd
     artifact-name: cornix_reset
 
-  - board: nice_nano//zmk
+  - board: nice_nano_v2
     shield: settings_reset
-    snippet: studio-rpc-usb-uart nrf52840-nosd
     artifact-name: reset_nicenano_nosd
