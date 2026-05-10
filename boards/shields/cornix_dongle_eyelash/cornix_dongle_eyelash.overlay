@@ -31,11 +31,11 @@
     pinctrl-1 = <&i2c0_sleep>;
 	oled: ssd1306@3c {
         /*
-         * SSD1315 is commonly SSD1306-compatible on I2C.
-         * If the image is horizontally shifted on your module, try
-         * adjusting `segment-offset` (often 0 or 2).
+         * SSD1315 / SSD1306-class OLED on I2C.
+         * Zephyr 3.5 + ZMK v0.3 use compatible solomon,ssd1306fb (not solomon,ssd1306)
+         * or LVGL fails: DT_PROP(..., width) missing on chosen display.
          */
-        compatible = "solomon,ssd1306";
+        compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         height = <64>;
 
