@@ -17,12 +17,11 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: v0.3.0
-    - name: zmk-rgbled-widget
-      remote: hitsmaxft
-      revision: v2.6.8
+      clone-depth: 1
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: v2.6.8
+      revision: main
+      clone-depth: 1
     - name: zmk-dongle-screen
       remote: janpfischer
       revision: main
