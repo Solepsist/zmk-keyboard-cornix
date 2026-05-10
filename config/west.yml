@@ -12,21 +12,17 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
-      clone-depth: 1
       import:
         file: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
-      clone-depth: 1
+      revision: v0.3.0
     - name: zmk-rgbled-widget
       remote: hitsmaxft
-      revision: main
-      clone-depth: 1
+      revision: v2.6.8
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: main
-      clone-depth: 1
+      revision: v2.6.8
     - name: zmk-dongle-screen
       remote: janpfischer
       revision: main
