@@ -3,11 +3,13 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "boards/*"
-      - "config/*"
+      - "boards/**"
+      - "config/**"
+      - "build.yaml"
 
 jobs:
   build:
-    # Pin to same major release as config/west.yml zmk revision (v0.3.x). @main expects newer
-    # west boards output (`qualifiers`) and breaks KeyError with Zephyr 3.5 toolchains.
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
+    # Immutable SHA for tag v0.3.0 — avoids accidentally tracking a retagged ref or stale @main behavior.
+    # Must match config/west.yml zmk revision. Newer reusable workflows use `west boards --format {qualifiers}`
+    # which breaks older Zephyr/west (KeyError: 'qualifiers').
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@edf5c0814fd3ea202e43aad2d68fd32e882a518c

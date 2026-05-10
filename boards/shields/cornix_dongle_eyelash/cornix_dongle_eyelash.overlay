@@ -26,7 +26,8 @@
 
 &i2c0 {
 	status = "okay";
-	compatible = "nordic,nrf-twi";
+	/* Do not force nordic,nrf-twi: Zephyr 4 nrf52840 defaults to nordic,nrf-twim for i2c0.
+	   Wrong compatible prevents SSD1306 child binding → DT_PROP(..., width) missing for LVGL. */
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
 	oled: ssd1306@3c {
